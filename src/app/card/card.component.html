@@ -1,0 +1,30 @@
+<p>card works!</p>
+<input type="button" value="Add Product" [routerLink]="['/card/add']" />
+<button type="button" (click)="logout()">log Out</button>
+
+<table border="1px">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Description</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.description }}</td>
+      <td>
+        <button type="button" (click)="deleteProductid(product._id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

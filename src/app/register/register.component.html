@@ -1,0 +1,47 @@
+<h3>Register</h3>
+<form [formGroup]="registerForm" (ngSubmit)="save()">
+  <table class="center">
+    <tr>
+      <td>Email :</td>
+      <td><input type="text" formControlName="email" /></td>
+      <td>
+        <div *ngIf="registerForm.get('email').touched">
+          <div *ngIf="registerForm.hasError('required', ['email'])">
+            This field is required
+          </div>
+          <div *ngIf="registerForm.hasError('pattern', ['email'])">
+            Please enter a valid email address
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Password :</td>
+      <td>
+        <input
+          type="password"
+          formControlName="password"
+          pattern=".{7,15}"
+          maxlength="15"
+        />
+      </td>
+      <div *ngIf="registerForm.get('password').touched">
+        <div *ngIf="registerForm.hasError('required', ['password'])">
+          This field is required
+        </div>
+        <div *ngIf="registerForm.hasError('pattern', ['password'])">
+          Please enter more than 7 character and less then 15
+        </div>
+      </div>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input type="submit" value="save" [disabled]="registerForm.invalid" />
+
+        <input type="button" value="Please Log In" [routerLink]="['/login']" />
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</form>

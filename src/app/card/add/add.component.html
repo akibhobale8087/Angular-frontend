@@ -1,0 +1,58 @@
+<h3>Add Product</h3>
+<form [formGroup]="productForm" (ngSubmit)="save()">
+  <table class="center">
+    <tr>
+      <td>Name :</td>
+      <td><input type="text" formControlName="name" /></td>
+      <td>
+        <div *ngIf="productForm.get('name').touched">
+          <div *ngIf="productForm.hasError('required', ['name'])">
+            This field is required
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Quantity :</td>
+      <td><input type="text" formControlName="quantity" /></td>
+      <td>
+        <div *ngIf="productForm.get('quantity').touched">
+          <div *ngIf="productForm.hasError('required', ['quantity'])">
+            This field is required
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Price :</td>
+      <td><input type="text" formControlName="price" /></td>
+      <td>
+        <div *ngIf="productForm.get('price').touched">
+          <div *ngIf="productForm.hasError('required', ['price'])">
+            This field is required
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Description :</td>
+      <td><input type="text" formControlName="description" /></td>
+      <td>
+        <div *ngIf="productForm.get('description').touched">
+          <div *ngIf="productForm.hasError('required', ['description'])">
+            This field is required
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input type="submit" value="save" [disabled]="productForm.invalid" />
+
+        <input type="button" value="Back" [routerLink]="['/card']" />
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</form>
