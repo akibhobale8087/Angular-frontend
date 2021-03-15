@@ -44,4 +44,8 @@ export class CardComponent implements OnInit {
       }
     });
   }
+
+  getProductInfo(id: any) {
+    this._router.navigate([`/view:/${id}`]);
+  }
 }

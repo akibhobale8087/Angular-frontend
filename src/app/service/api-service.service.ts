@@ -43,6 +43,11 @@ export class ApiServiceService {
     });
   }
 
+  get(id) {
+    return this.httpClient.get(this.BASE_URL + "/user/cardInfo/" + id, {
+      headers: this.headers,
+    });
+  }
   delete(id: any) {
     return this.httpClient.delete(this.BASE_URL + "/user/deleteProduct/" + id, {
       headers: this.headers,

@@ -6,9 +6,10 @@ import { CardComponent } from "./card.component";
 import { AddComponent } from "./add/add.component";
 
 import { HttpClientModule } from "@angular/common/http";
+import { ViewComponent } from './view/view.component';
 
 @NgModule({
-  declarations: [CardComponent, AddComponent],
+  declarations: [CardComponent, AddComponent, ViewComponent],
   imports: [
     CommonModule,
     CardRoutingModule,
